@@ -37,6 +37,9 @@ const downloadContentfulAssets = async gatsbyFunctions => {
 
   await Promise.all(
     contentfulAssetNodes.map(async node => {
+      if(!node.file) {
+        return;
+      }
       totalJobs += 1
       bar.total = totalJobs
 
